@@ -21,8 +21,8 @@
         <button type="button" class="startButton" id="startButton">Start</button>
         <div class="scoreContainer">
             <p class="score">Score:</p>
-            <p class="playerScore" id="p1Score"></p>
-            <p class="playerScore" id="p2Score"></p>
+            <p class="playerScore" id="p1Score">Player1: 0</p>
+            <p class="playerScore" id="p2Score">Player2: 0</p>
         </div>
         
     </div>
@@ -40,6 +40,48 @@
         </div>
     </div>
     <footer>ciao</footer>
+    <dialog class="dialog" id="p1Dialog">
+        <form action="" method="post" id="p1Form">
+            <div class="formContainer">
+                <div class="playerNameInputContainer">
+                    <label for="player1NameInput">Name</label>
+                    <input type="text" id="player1NameInput"required>
+                </div>
+                <div class="colorInputContainer">
+                    <label for="colorInput1">Color</label>
+                    <input type="color" class="colorInput" id="colorInput1" value="royalblue">
+                </div>
+                <div id="p1mark1" class="markSelector"><img src="./icons/close.png" alt=""></div>
+                <div id="p1mark2" class="markSelector"><img src="./icons/delete-cross.png" alt=""></div>
+                <div id="p1mark3" class="markSelector"><img src="./icons/bones.png" alt=""></div>
+            
+                <button type="submit" class="submitButton" id="p1CloseButton">Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    
+    
+    <dialog class="dialog" id="p2Dialog">
+        <form action="" method="post" id="p2Form">
+            <div class="formContainer">
+                <div class="playerNameInputContainer">
+                    <label for="player2NameInput">Name</label>
+                    <input type="text" id="player2NameInput"required>
+                </div>
+                <div class="colorInputContainer">
+                    <label for="colorInput2">Color</label>
+                    <input type="color" class="colorInput" id="colorInput2" value="red">
+                </div>
+                <div id="p2mark1" class="markSelector"><img src="./icons/rec.png" alt=""></div>
+                <div id="p2mark2" class="markSelector"><img src="./icons/star-inside-circle.png" alt=""></div>
+                <div id="p2mark3" class="markSelector"><img src="./icons/target.png" alt=""></div>
+            
+                <button type="submit" class="submitButton" id="p1CloseButton">Confirm</button>
+            </div>
+        </form>
+
+    </dialog>
+
 
     
 </body>

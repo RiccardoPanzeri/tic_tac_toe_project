@@ -164,8 +164,17 @@ const game = (function (){
 
 //modulo gestione erendering e manipolazione DOM
 const DisplayHandler = (function(){
+    //Ricerca elementi nel Dom
+    const editPlayer1 = document.querySelector("#p1Button");
+    const editPlayer2 = document.querySelector("#p2Button");
+    const startButton = document.querySelector("#startButton");
+    const gameBoardDiv = document.querySelector("#gameBoard");
+    const p1Dialog = document.querySelector("#p1Dialog");
+    const p2dialog = document.querySelector("#p2Dialog");
 
-
+    //eventListeners:
+    editPlayer1.addEventListener("click", () => p1Dialog.showModal());
+    editPlayer2.addEventListener("click", ()=> p2dialog.showModal());
 
 
 
