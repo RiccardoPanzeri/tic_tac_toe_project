@@ -2,7 +2,6 @@
 
 
 
-//modulo gestione erendering e manipolazione DOM
 
 //modulo Gameboard
 const gameboard = (function (){
@@ -157,6 +156,20 @@ const game = (function (){
     startGame();
 
     return{changeTurn, startGame, getCurrentTurn, checkWinner, player1, player2};
+
+
+})();
+
+
+
+//modulo gestione erendering e manipolazione DOM
+const DisplayHandler = (function(){
+
+
+
+
+
+
 
 
 })();

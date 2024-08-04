@@ -1,0 +1,99 @@
+body, html{
+    height:100%;
+
+}
+
+body{
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 5fr 1fr;
+    row-gap: 40px;
+    background-image: url("./img/bright-colorful-neon-background.jpg");
+    background-size:cover;
+    
+
+}
+
+
+
+.headerContainer{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+.playerButtonContainer{
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+}
+
+.playerButton{
+    width:100px;
+    height: 50px;
+}
+
+
+.startContainer{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.startButton{
+    width: 200px;
+    height: 80px;
+    margin-left: 120px;
+    margin-right: 40px;
+    
+}
+
+
+.scoreContainer{
+   
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.gameBoardContainer{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.gameBoard{
+    display: grid;
+    grid-template-rows: repeat(3, 160px);
+    grid-template-columns: repeat(3, 230px) ;
+    
+    min-width: 400px;
+    background-color: rgb(20, 20, 20);
+    border: solid white 1px;
+}
+
+
+
+.gameBoard div{
+    border: solid 1px white;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+    
+    
+}
+
+.mark img{
+    width: 260px;
+    height: 180px;
+}
+
+.mark:hover{
+    cursor: pointer;
+}
