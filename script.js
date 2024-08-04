@@ -57,8 +57,9 @@ const game = (function (){
     let turn;
     let gameOver = false;
     //factory function per la creazione dei giocatori
-    function createPlayer(name, mark){
+    function createPlayer(name, mark, color){
         let score = 0;
+        
         
 
         const getName = function(){
@@ -84,8 +85,18 @@ const game = (function (){
             return score;
         }
 
+        const setColor = function(newColor){
+            color = newColor;
+        }
 
-        return {getName, setName, setMark, getMark, modifyScore, resetScore, getScore};
+        const getColor = function(){
+            return color;
+        }
+
+
+
+
+        return {getName, setName, setMark, getMark, modifyScore, resetScore, getScore, getColor, setColor};
     }
 
     //funzione che avvia la partita
@@ -151,8 +162,8 @@ const game = (function (){
         }
     }
     
-    const player1 = createPlayer("player1", "p1");
-    const player2= createPlayer("Player2", "p2"); 
+    const player1 = createPlayer("player1", "p1", "#0c66f0");
+    const player2 = createPlayer("Player2", "p2", "#fd0432"); 
     startGame();
 
     return{changeTurn, startGame, getCurrentTurn, checkWinner, player1, player2};
@@ -164,17 +175,47 @@ const game = (function (){
 
 //modulo gestione erendering e manipolazione DOM
 const DisplayHandler = (function(){
-    //Ricerca elementi nel Dom
+
+//Ricerca elementi nel Dom:
+
+    //elementi player1
     const editPlayer1 = document.querySelector("#p1Button");
-    const editPlayer2 = document.querySelector("#p2Button");
     const startButton = document.querySelector("#startButton");
     const gameBoardDiv = document.querySelector("#gameBoard");
     const p1Dialog = document.querySelector("#p1Dialog");
-    const p2dialog = document.querySelector("#p2Dialog");
-
+    const p1closeButton = document.querySelector("#p1CloseButton");
+    const p1Form = document.querySelector("#p1Form")
+    const p1NameInput = document.querySelector("#player1NameInput");
+    const p1ColorInput = document.querySelector("#p1ColorInput");
+    const p1Score = document.querySelector("#p1Score")
+    //elementi player2
+    const p2CloseButton = document.querySelector("#p2CloseButton");
+    const p2Dialog = document.querySelector("#p2Dialog");
+    const editPlayer2 = document.querySelector("#p2Button");
+    const p2Score = document.querySelector("#p2Score")
+    
+    //settaggi iniziali:
+    p1Score.style.color =game.player1.getColor();
+    p2Score.style.color =game.player2.getColor();
     //eventListeners:
+    //finestre modali:
     editPlayer1.addEventListener("click", () => p1Dialog.showModal());
-    editPlayer2.addEventListener("click", ()=> p2dialog.showModal());
+    editPlayer2.addEventListener("click", ()=> p2Dialog.showModal());
+    //close buttons:
+    p1closeButton.addEventListener("click", (e)=>{
+        e.preventDefault();
+        if(!p1Form.checkValidity()){
+            p1Form.reportValidity();
+        }else{
+            game.player1.setName(p1NameInput.value);
+            game.player1.setColor(p1ColorInput.value);
+            p1Score.textContent = `${game.player1.getName()}: ${game.player1.getScore()} `;
+            p1Score.style.color = game.player1.getColor();
+
+            p1Dialog.close();
+           
+        }
+    })
 
 
 
