@@ -60,6 +60,7 @@ const gameboard = (function (){
 const game = (function (){
     let turn;
     let gameOver = false;
+    
     //factory function per la creazione dei giocatori
     function createPlayer(name, mark, color, markerImg){
         let score = 0;
@@ -115,6 +116,8 @@ const game = (function (){
     const startGame = function(){
         console.log("Start");
         gameOver = false;
+        p2Score.textContent = `${player2.getName()}: ${player2.getScore()} `;
+        p1Score.textContent = `${player1.getName()}: ${player1.getScore()} `;
         gameboard.resetTiles();
         turn = "p1";
         const markers = document.querySelectorAll(".tempImg");
@@ -160,6 +163,7 @@ const game = (function (){
         (gameboard.getTile("t6") === "p1" && gameboard.getTile("t7") === "p1" && gameboard.getTile("t8") ==="p1") ){
             gameOver = true;
             console.log("p1 vince");
+            game.player1.modifyScore(1);
            
         }
         if((gameboard.getTile("t0") === "p2" && gameboard.getTile("t1") === "p2" && gameboard.getTile("t2") ==="p2")||
@@ -171,6 +175,7 @@ const game = (function (){
         (gameboard.getTile("t3") === "p2" && gameboard.getTile("t4") === "p2" && gameboard.getTile("t5") ==="p2") || 
         (gameboard.getTile("t6") === "p2" && gameboard.getTile("t7") === "p2" && gameboard.getTile("t8") ==="p2") ){
             gameOver = true;
+            game.player2.modifyScore(1);
             console.log("p2 vince");
             
         }
