@@ -273,7 +273,7 @@ const DisplayHandler = (function(){
                 game.player1.setName(p1NameInput.value);
                 }
             game.player1.setColor(p1ColorInput.value);
-            p1Score.textContent = `${game.player1.getName()}: ${game.player1.getScore()} `;
+            p1Score.textContent = `${game.player1.getName()} : ${game.player1.getScore()} `;
             p1Score.style.color = game.player1.getColor();
             p1Score.style.borderColor = game.player1.getColor();
             editPlayer1.style.borderColor = game.player1.getColor();    
@@ -291,7 +291,7 @@ const DisplayHandler = (function(){
             game.player2.setName(p2NameInput.value);
             }
             game.player2.setColor(p2ColorInput.value);
-            p2Score.textContent = `${game.player2.getName()}: ${game.player2.getScore()} `;
+            p2Score.textContent = `${game.player2.getName()} : ${game.player2.getScore()} `;
             p2Score.style.color = game.player2.getColor();
             p2Score.style.borderColor = game.player2.getColor();
             editPlayer2.style.borderColor = game.player2.getColor();
