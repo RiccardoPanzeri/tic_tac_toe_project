@@ -113,6 +113,12 @@ const game = (function (){
         gameOver = false;
         gameboard.resetTiles();
         turn = "p1";
+        const markers = document.querySelectorAll(".tempImg");
+        for (let element of markers){
+            element.remove();
+        }
+        const tiles = document.querySelectorAll(".mark");
+        tiles.forEach(element => element.style.backgroundColor = "rgb(20, 20, 20)");
         
            
         
@@ -210,8 +216,8 @@ const DisplayHandler = (function(){
     //settaggi iniziali:
     p1Score.style.color =game.player1.getColor();
     p2Score.style.color =game.player2.getColor();
-    game.player1.setMark("url(./icons/close.png)");
-    game.player2.setMark("url(./icons/rec.png)");
+    game.player1.setImg("./icons/close.png");
+    game.player2.setImg("./icons/rec.png");
     p2Dialog.style.borderColor = game.player2.getColor();
     p1Dialog.style.borderColor = game.player1.getColor();
     p1Score.style.borderColor = game.player1.getColor();
@@ -341,14 +347,220 @@ const DisplayHandler = (function(){
     startButton.addEventListener("click", game.startGame);
 
     //gameboard:
-    gameboard.addEventListener("click", (e)=>{
+    gameBoardDiv.addEventListener("click", (e)=>{
         let target = e.target;
         switch(target.id){
-            case: 
+            case "t0":
+                
+                if(gameboard.getTile("t0") === ""){
+                    gameboard.markTile("t0");
+                   
+                    if(checkCasella("t0") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t0") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t1":
+                
+                if(gameboard.getTile("t1") === ""){
+                    gameboard.markTile("t1");
+                   
+                    if(checkCasella("t1") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t1") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t2":
+                
+                if(gameboard.getTile("t2") === ""){
+                    gameboard.markTile("t2");
+                   
+                    if(checkCasella("t2") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t2") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t3":
+                
+                if(gameboard.getTile("t3") === ""){
+                    gameboard.markTile("t3");
+                   
+                    if(checkCasella("t3") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t3") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t4":
+                
+                if(gameboard.getTile("t4") === ""){
+                    gameboard.markTile("t4");
+                   
+                    if(checkCasella("t4") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t4") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t5":
+                
+                if(gameboard.getTile("t5") === ""){
+                    gameboard.markTile("t5");
+                   
+                    if(checkCasella("t5") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t5") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t6":
+                
+                if(gameboard.getTile("t6") === ""){
+                    gameboard.markTile("t6");
+                   
+                    if(checkCasella("t6") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t6") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t7":
+                
+                if(gameboard.getTile("t7") === ""){
+                    gameboard.markTile("t7");
+                   
+                    if(checkCasella("t7") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t7") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
+                case "t8":
+                
+                if(gameboard.getTile("t8") === ""){
+                    gameboard.markTile("t8");
+                   
+                    if(checkCasella("t8") === "p2"){
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player2.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                        target.style.backgroundColor = game.player2.getColor();
+                    }else if(checkCasella("t8") === "p1"){
+                        
+                        target.style.backgroundColor = game.player1.getColor();
+                        let img = document.createElement("img");
+                        img.setAttribute("src", game.player1.getImg());
+                        img.classList.add("tempImg");
+                        target.appendChild(img);
+                    }
+                } 
+                break;
         }
 
 
-    })
+
+    });
+
+
+    //funzione check mark casella:
+    const checkCasella = function(casella){
+        if(gameboard.getTile(casella) === "p1"){
+            
+            
+            return "p1"
+            
+        }else if(gameboard.getTile(casella) === "p2"){
+            
+            return "p2"
+            
+        }else{
+            return null;
+        }
+    }
     
 
 
