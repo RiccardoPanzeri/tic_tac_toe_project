@@ -37,11 +37,21 @@ body{
 .playerButton{
     width:100px;
     height: 50px;
+    border-radius: 10px;
+    border: ridge 3px;
+    color: white;
+    background-color: rgb(20, 20, 20);
+    white-space:nowrap;
+    
 }
 
 .playerButton:hover{
     cursor: pointer;
+    width: 110px;
+    height: 60px;
+    background-color: rgb(51, 51, 51);
 }
+
 
 
 .startContainer{
@@ -57,11 +67,25 @@ body{
     height: 80px;
     margin-left: 120px;
     margin-right: 40px;
+    border-radius: 10px;
+    border: double 10px gold;
+    background-color: rgb(43, 40, 40);
+    color: gold;
+    font-size: 1.3rem;
     
 }
 
 .startButton:hover{
     cursor: pointer;
+    background-color: rgb(56, 54, 54);
+    width: 202px;
+    height: 85px;
+}
+
+.startButton:active{
+    background-color: rgb(255, 0, 242);
+    border-color: white;
+    color: white
 }
 
 
@@ -166,6 +190,12 @@ body{
     align-self: center;
 }
 
+.nameInput{
+    background-color: rgb(99, 95, 95);
+    color: whitesmoke;
+    border-radius: 5px;
+}
+
 .colorInputContainer{
     display: flex;
     flex-direction: column;
@@ -181,6 +211,11 @@ body{
 
 .colorInput{
     width: 80%;
+    
+}
+
+.label{
+    color: whitesmoke;
 }
 
 .markSelector{
@@ -197,18 +232,31 @@ body{
     align-self: center;
     justify-self: center;
     border-radius: 10px;
+    background-color: rgb(192, 184, 184);
     
 }
 
 
 .submitButton{
-    width: 120px;
+    width: 150px;
     height: 80px;
     justify-self: center;
     align-self: center;
     grid-column: 1/4;
     grid-row: 4/5;
-    border-radius: 30px;
+    border-radius: 20px;
+    border: ridge 3px;
+    background-color: rgb(83, 80, 80);
+    color: whitesmoke;
+    font-size: 1.3rem;
+}
+
+.submitButton:hover{
+    background-color: rgb(129, 126, 126); 
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: 160px;
+    height: 90px;
 }
 
 
@@ -220,8 +268,13 @@ body{
 }
 
 .dialog{
+    
+
     border-radius: 20px;
     border:ridge 6px;
+    background-color: rgb(20, 20, 20);
+    border-color: gold;
+    color:white;
 }
 
 .resultContainer{

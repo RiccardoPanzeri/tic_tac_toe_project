@@ -168,6 +168,8 @@ const game = (function (){
             console.log("p1 vince");
         game.player1.modifyScore(1);
         DisplayHandler.setResultText (`${game.player1.getName()} wins!`);
+        DisplayHandler.setResultBorder(game.player1.getColor());
+        DisplayHandler.setRestartButtonColor(game.player1.getColor());
         resultDialog.showModal();
            
         }else if((gameboard.getTile("t0") === "p2" && gameboard.getTile("t1") === "p2" && gameboard.getTile("t2") ==="p2")||
@@ -181,6 +183,8 @@ const game = (function (){
             
             game.player2.modifyScore(1);
             DisplayHandler.setResultText(`${game.player2.getName()} wins!`);
+            DisplayHandler.setResultBorder(game.player2.getColor());
+            DisplayHandler.setRestartButtonColor(game.player2.getColor());
             resultDialog.showModal();
             
             console.log("p2 vince");
@@ -189,6 +193,8 @@ const game = (function (){
         const values = Object.values(gameboard.getTileList());
         if(!values.includes("")){
             DisplayHandler.setResultText(`It's a Draw!`);
+            DisplayHandler.setResultBorder("#FFD700");
+            DisplayHandler.setRestartButtonColor("#FFD700");
             resultDialog.showModal();
         }
     }
@@ -245,6 +251,10 @@ const DisplayHandler = (function(){
     p1Dialog.style.borderColor = game.player1.getColor();
     p1Score.style.borderColor = game.player1.getColor();
     p2Score.style.borderColor = game.player2.getColor();
+    p1CloseButton.style.borderColor = game.player1.getColor();
+    editPlayer1.style.borderColor = game.player1.getColor();
+    p2CloseButton.style.borderColor = game.player2.getColor();
+    editPlayer2.style.borderColor = game.player2.getColor();
     
     
     //eventListeners
@@ -294,14 +304,16 @@ const DisplayHandler = (function(){
     p1ColorInput.addEventListener("input", ()=>{
         game.player1.setColor(p1ColorInput.value);
         p1Dialog.style.borderColor = game.player1.getColor();
-
-        console.log(`cambioColore ${game.player1.getColor()}`);
+        p1CloseButton.style.borderColor = game.player1.getColor();
+        editPlayer1.style.borderColor = game.player1.getColor();
+        
 
     });
     p2ColorInput.addEventListener("input", ()=>{
         game.player2.setColor(p2ColorInput.value);
-        console.log(`cambioColore ${game.player2.getColor()}`);
+        p2CloseButton.style.borderColor = game.player2.getColor();
         p2Dialog.style.borderColor = game.player2.getColor();
+        editPlayer2.style.borderColor = game.player2.getColor();
 
     });
 
@@ -311,7 +323,8 @@ const DisplayHandler = (function(){
         switch(target.id){
             case "p1Mark1Img":
                 document.querySelectorAll(".markImg").forEach(element =>{
-                    element.style.backgroundColor = "#ffffff";
+                    element.style.backgroundColor = "rgb(192, 184, 184)";
+    
                 });
                 target.style.backgroundColor = game.player1.getColor();
                 game.player1.setImg("./icons/close.png");
@@ -319,7 +332,8 @@ const DisplayHandler = (function(){
                 break;
             case "p1Mark2Img":
                 document.querySelectorAll(".markImg").forEach(element =>{
-                    element.style.backgroundColor = "#ffffff";
+                    element.style.backgroundColor = "rgb(192, 184, 184)";
+    
                 });
                 target.style.backgroundColor = game.player1.getColor();
                 game.player1.setImg("./icons/delete-cross.png");
@@ -327,7 +341,8 @@ const DisplayHandler = (function(){
                 break;
             case  "p1Mark3Img":   
             document.querySelectorAll(".markImg").forEach(element =>{
-                element.style.backgroundColor = "#ffffff";
+                element.style.backgroundColor = "rgb(192, 184, 184)";
+
             });
             target.style.backgroundColor = game.player1.getColor();
             game.player1.setImg("./icons/bones.png");
@@ -343,7 +358,8 @@ const DisplayHandler = (function(){
         switch(target.id){
             case "p2Mark1Img":
                 document.querySelectorAll(".markImg").forEach(element =>{
-                    element.style.backgroundColor = "#ffffff";
+                    element.style.backgroundColor = "rgb(192, 184, 184)";
+    
                 });
                 target.style.backgroundColor = game.player2.getColor();
                 game.player2.setImg("./icons/rec.png");
@@ -351,7 +367,7 @@ const DisplayHandler = (function(){
                 break;
             case "p2Mark2Img":
                 document.querySelectorAll(".markImg").forEach(element =>{
-                    element.style.backgroundColor = "#ffffff";
+                    element.style.backgroundColor = "rgb(192, 184, 184)";
                 });
                 target.style.backgroundColor = game.player2.getColor();
                 game.player2.setImg("./icons/star-inside-circle.png");
@@ -359,7 +375,7 @@ const DisplayHandler = (function(){
                 break;
             case  "p2Mark3Img":   
             document.querySelectorAll(".markImg").forEach(element =>{
-                element.style.backgroundColor = "#ffffff";
+                element.style.backgroundColor = "rgb(192, 184, 184)";
             });
             target.style.backgroundColor = game.player2.getColor();
             game.player2.setImg("./icons/target.png");
@@ -579,6 +595,8 @@ const DisplayHandler = (function(){
         game.startGame();
     });
 
+   
+    //metodi:
 
     //funzione check mark casella:
     const checkCasella = function(casella){
@@ -606,7 +624,15 @@ const DisplayHandler = (function(){
         resultText.textContent = text;
     }
 
-    return{setResultText, getResultText};
+    const setResultBorder = function(color){
+        resultDialog.style.borderColor = color;
+    }
+
+    const setRestartButtonColor = function(color){
+        restartButton.style.borderColor = color;
+    }
+
+    return{setResultText, getResultText, setResultBorder, setRestartButtonColor};
 
 
 })();
