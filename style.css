@@ -125,7 +125,7 @@ body{
 }
 
 .startButton:active{
-    background-color: rgb(0, 204, 255);
+    background-color: rgb(0, 255, 13);
     border-color: white;
     color: white
 }
