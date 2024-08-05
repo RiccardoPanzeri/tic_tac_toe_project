@@ -223,3 +223,9 @@ body{
     border-radius: 20px;
     border:ridge 6px;
 }
+
+.resultContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

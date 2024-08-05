@@ -106,6 +106,8 @@ const game = (function (){
             return markerImg;
         }
 
+    
+
 
 
         return {getName, setName, setMark, getMark, modifyScore, resetScore, getScore, getColor,
@@ -116,6 +118,7 @@ const game = (function (){
     const startGame = function(){
         console.log("Start");
         gameOver = false;
+        winner = "";
         p2Score.textContent = `${player2.getName()}: ${player2.getScore()} `;
         p1Score.textContent = `${player1.getName()}: ${player1.getScore()} `;
         gameboard.resetTiles();
@@ -163,10 +166,11 @@ const game = (function (){
         (gameboard.getTile("t6") === "p1" && gameboard.getTile("t7") === "p1" && gameboard.getTile("t8") ==="p1") ){
             gameOver = true;
             console.log("p1 vince");
-            game.player1.modifyScore(1);
+        game.player1.modifyScore(1);
+        DisplayHandler.setResultText (`${game.player1.getName()} wins!`);
+        resultDialog.showModal();
            
-        }
-        if((gameboard.getTile("t0") === "p2" && gameboard.getTile("t1") === "p2" && gameboard.getTile("t2") ==="p2")||
+        }else if((gameboard.getTile("t0") === "p2" && gameboard.getTile("t1") === "p2" && gameboard.getTile("t2") ==="p2")||
         (gameboard.getTile("t0") === "p2" && gameboard.getTile("t3") === "p2" && gameboard.getTile("t6") ==="p2")
             ||(gameboard.getTile("t0") === "p2" && gameboard.getTile("t4") === "p2" && gameboard.getTile("t8") ==="p2")||
             (gameboard.getTile("t1") === "p2" && gameboard.getTile("t4") === "p2" && gameboard.getTile("t7") ==="p2")||
@@ -174,19 +178,22 @@ const game = (function (){
         || (gameboard.getTile("t2") === "p2" && gameboard.getTile("t4")=== "p2" && gameboard.getTile("t6") ==="p2")||
         (gameboard.getTile("t3") === "p2" && gameboard.getTile("t4") === "p2" && gameboard.getTile("t5") ==="p2") || 
         (gameboard.getTile("t6") === "p2" && gameboard.getTile("t7") === "p2" && gameboard.getTile("t8") ==="p2") ){
-            gameOver = true;
+            
             game.player2.modifyScore(1);
+            DisplayHandler.setResultText(`${game.player2.getName()} wins!`);
+            resultDialog.showModal();
+            
             console.log("p2 vince");
             
-        }
+        }else{
         const values = Object.values(gameboard.getTileList());
         if(!values.includes("")){
-            gameOver = true;
+            DisplayHandler.setResultText(`It's a Draw!`);
+            resultDialog.showModal();
         }
+    }
 
-        if(gameOver){
-            startGame();
-        }
+        
     }
     
     const player1 = createPlayer("player1", "p1", "#0c66f0");
@@ -207,6 +214,9 @@ const DisplayHandler = (function(){
     //elementi generici:
     const startButton = document.querySelector("#startButton");
     const gameBoardDiv = document.querySelector("#gameBoard");
+    const resultDialog = document.querySelector("#resultDialog");
+    const resultText = document.querySelector("#resultHeader");
+    const restartButton = document.querySelector("#restartButton");
     //elementi player1
     const editPlayer1 = document.querySelector("#p1Button");
     const p1Dialog = document.querySelector("#p1Dialog");
@@ -563,6 +573,13 @@ const DisplayHandler = (function(){
     });
 
 
+    //pulsante restart:
+    restartButton.addEventListener("click", ()=>{
+        resultDialog.close();
+        game.startGame();
+    });
+
+
     //funzione check mark casella:
     const checkCasella = function(casella){
         if(gameboard.getTile(casella) === "p1"){
@@ -580,10 +597,16 @@ const DisplayHandler = (function(){
     }
     
 
+    //funzioni setter e getter 
+    const getResultText = function(){
+        return ResulText.textContent;
+    }
 
+    const setResultText = function(text){
+        resultText.textContent = text;
+    }
 
-
-
+    return{setResultText, getResultText};
 
 
 })();
