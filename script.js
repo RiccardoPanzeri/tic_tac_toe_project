@@ -43,7 +43,11 @@ const gameboard = (function (){
         console.table(gameboardTiles);
     }
 
-    return {resetTiles, markTile, getTile, showTiles};
+    function getTileList(){
+        return gameboardTiles;
+    }
+
+    return {resetTiles, markTile, getTile, showTiles, getTileList};
 
 
 
@@ -170,6 +174,10 @@ const game = (function (){
             console.log("p2 vince");
             
         }
+        const values = Object.values(gameboard.getTileList());
+        if(!values.includes("")){
+            gameOver = true;
+        }
 
         if(gameOver){
             startGame();
@@ -236,7 +244,9 @@ const DisplayHandler = (function(){
         if(!p1Form.checkValidity()){
             p1Form.reportValidity();
         }else{
-            game.player1.setName(p1NameInput.value);
+            if(p1NameInput.value !== ""){
+                game.player1.setName(p1NameInput.value);
+                }
             game.player1.setColor(p1ColorInput.value);
             p1Score.textContent = `${game.player1.getName()}: ${game.player1.getScore()} `;
             p1Score.style.color = game.player1.getColor();
@@ -253,7 +263,9 @@ const DisplayHandler = (function(){
         if(!p2Form.checkValidity()){
             p2Form.reportValidity();
         }else{
+            if(p2NameInput.value !== ""){
             game.player2.setName(p2NameInput.value);
+            }
             game.player2.setColor(p2ColorInput.value);
             p2Score.textContent = `${game.player2.getName()}: ${game.player2.getScore()} `;
             p2Score.style.color = game.player2.getColor();
