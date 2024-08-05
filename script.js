@@ -119,8 +119,8 @@ const game = (function (){
         console.log("Start");
         gameOver = false;
         winner = "";
-        p2Score.textContent = `${player2.getName()}: ${player2.getScore()} `;
-        p1Score.textContent = `${player1.getName()}: ${player1.getScore()} `;
+        p2Score.textContent = `${player2.getName()} : ${player2.getScore()} `;
+        p1Score.textContent = `${player1.getName()} : ${player1.getScore()} `;
         gameboard.resetTiles();
         turn = "p1";
         const markers = document.querySelectorAll(".tempImg");
@@ -202,8 +202,8 @@ const game = (function (){
         
     }
     
-    const player1 = createPlayer("player1", "p1", "#0c66f0");
-    const player2 = createPlayer("Player2", "p2", "#fd0432"); 
+    const player1 = createPlayer("player 1", "p1", "#0c66f0");
+    const player2 = createPlayer("Player 2", "p2", "#fd0432"); 
     startGame();
 
     return{changeTurn, startGame, getCurrentTurn, checkWinner, player1, player2};
@@ -276,9 +276,8 @@ const DisplayHandler = (function(){
             p1Score.textContent = `${game.player1.getName()}: ${game.player1.getScore()} `;
             p1Score.style.color = game.player1.getColor();
             p1Score.style.borderColor = game.player1.getColor();
-   
-
-            p1Dialog.close();
+            editPlayer1.style.borderColor = game.player1.getColor();    
+             p1Dialog.close();
            
         }
     });
@@ -295,6 +294,7 @@ const DisplayHandler = (function(){
             p2Score.textContent = `${game.player2.getName()}: ${game.player2.getScore()} `;
             p2Score.style.color = game.player2.getColor();
             p2Score.style.borderColor = game.player2.getColor();
+            editPlayer2.style.borderColor = game.player2.getColor();
             p2Dialog.close();
            
         }
@@ -305,7 +305,7 @@ const DisplayHandler = (function(){
         game.player1.setColor(p1ColorInput.value);
         p1Dialog.style.borderColor = game.player1.getColor();
         p1CloseButton.style.borderColor = game.player1.getColor();
-        editPlayer1.style.borderColor = game.player1.getColor();
+        
         
 
     });
@@ -313,7 +313,7 @@ const DisplayHandler = (function(){
         game.player2.setColor(p2ColorInput.value);
         p2CloseButton.style.borderColor = game.player2.getColor();
         p2Dialog.style.borderColor = game.player2.getColor();
-        editPlayer2.style.borderColor = game.player2.getColor();
+        
 
     });
 

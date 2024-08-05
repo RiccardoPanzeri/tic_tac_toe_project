@@ -1,5 +1,31 @@
+@font-face {
+    font-family: 'joystixmonospace';
+    src: url('./fonts/joystix_monospace-webfont.woff2') format('woff2'),
+         url('./fonts/joystix_monospace-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'upheaval_proregular';
+    src: url('./fonts/upheavalpro-webfont.woff2') format('woff2'),
+         url('./fonts/upheavalpro-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+
 :root{
     font-size: 16px;
+    
 }
 
 body, html{
@@ -28,11 +54,23 @@ body{
     
 }
 
+.title{
+
+    font-family: 'upheaval_proregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2.5rem;
+    color: white;
+    text-shadow:  2px 0 black,
+    -2px -2px 0 black,
+    2px -2px 0 black,
+    -2px 2px 0 black;
+
+}
+
 .playerButtonContainer{
     display: flex;
     justify-content: center;
     gap: 200px;
-}
+    }
 
 .playerButton{
     width:100px;
@@ -41,7 +79,8 @@ body{
     border: ridge 3px;
     color: white;
     background-color: rgb(20, 20, 20);
-    white-space:nowrap;
+    font-size: 1.1rem;
+    font-family: 'upheaval_proregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     
 }
 
@@ -71,7 +110,9 @@ body{
     border: double 10px gold;
     background-color: rgb(43, 40, 40);
     color: gold;
-    font-size: 1.3rem;
+    font-size: 1.9rem;
+    font-family: 'upheaval_proregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
     
 }
 
@@ -80,10 +121,11 @@ body{
     background-color: rgb(56, 54, 54);
     width: 202px;
     height: 85px;
+    font-size: 2rem;
 }
 
 .startButton:active{
-    background-color: rgb(255, 0, 242);
+    background-color: rgb(0, 204, 255);
     border-color: white;
     color: white
 }
@@ -103,10 +145,12 @@ body{
     font-size: 1.4rem;
     align-self: center;
     color: white;
+    font-family: 'upheaval_proregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-shadow:  1px 0 black,
     -1px -1px 0 black,
     1px -1px 0 black,
     -1px 1px 0 black;
+    
 }
 
 #p2Score{
@@ -119,6 +163,7 @@ body{
     border: ridge 4px;
     padding: 10px;
     font-size: 1.4rem;
+    font-family: 'upheaval_proregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   
     
 }
@@ -248,7 +293,8 @@ body{
     border: ridge 3px;
     background-color: rgb(83, 80, 80);
     color: whitesmoke;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-family: 'upheaval_proregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .submitButton:hover{
@@ -269,7 +315,8 @@ body{
 
 .dialog{
     
-
+    font-family: 'upheaval_proregular', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: 3px;
     border-radius: 20px;
     border:ridge 6px;
     background-color: rgb(20, 20, 20);
