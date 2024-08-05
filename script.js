@@ -118,7 +118,7 @@ const game = (function (){
     const startGame = function(){
         console.log("Start");
         gameOver = false;
-        winner = "";
+        
         p2Score.textContent = `${player2.getName()} : ${player2.getScore()} `;
         p1Score.textContent = `${player1.getName()} : ${player1.getScore()} `;
         gameboard.resetTiles();
@@ -387,7 +387,12 @@ const DisplayHandler = (function(){
 
 
     //tasto start:
-    startButton.addEventListener("click", game.startGame);
+    startButton.addEventListener("click", ()=>{
+        game.player1.resetScore();
+        game.player2.resetScore();
+        game.startGame();
+
+    });
 
     //gameboard:
     gameBoardDiv.addEventListener("click", (e)=>{
