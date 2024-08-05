@@ -68,17 +68,35 @@ body{
 .scoreContainer{
    
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50px 2fr;
     grid-template-rows: 1fr 1fr;
+    column-gap: 30px;
 }
 
 
 .score{
     grid-row: 0/3;
+    font-size: 1.4rem;
+    align-self: center;
+    color: white;
+    text-shadow:  1px 0 black,
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black;
 }
 
 #p2Score{
     grid-column: 2/3;
+}
+
+.playerScore{
+    background-color: rgb(43, 40, 40);
+    border-radius: 5px;
+    border: ridge 4px;
+    padding: 10px;
+    font-size: 1.4rem;
+  
+    
 }
 
 .gameBoardContainer{
@@ -89,7 +107,7 @@ body{
 
 .gameBoard{
     display: grid;
-    grid-template-rows: repeat(3, 160px);
+    grid-template-rows: repeat(3, 190px);
     grid-template-columns: repeat(3, 230px) ;
     
     min-width: 400px;
@@ -105,7 +123,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 160px;
+    height: 190px;
     
     
 }
@@ -170,10 +188,12 @@ body{
 }
 
 .markSelector img{
-    height:90px;
-    width: 90px;
+    height:80px;
+    width: 80px;
     align-self: center;
     justify-self: center;
+    border-radius: 10px;
+    
 }
 
 
@@ -193,4 +213,9 @@ body{
     
     width: 100px;
     height: 100px;
+}
+
+.dialog{
+    border-radius: 20px;
+    border:ridge 6px;
 }

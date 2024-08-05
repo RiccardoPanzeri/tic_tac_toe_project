@@ -211,7 +211,11 @@ const DisplayHandler = (function(){
     p1Score.style.color =game.player1.getColor();
     p2Score.style.color =game.player2.getColor();
     game.player1.setMark("url(./icons/close.png)");
-    game.player2.setMark("url(./icons/rec.png)")
+    game.player2.setMark("url(./icons/rec.png)");
+    p2Dialog.style.borderColor = game.player2.getColor();
+    p1Dialog.style.borderColor = game.player1.getColor();
+    p1Score.style.borderColor = game.player1.getColor();
+    p2Score.style.borderColor = game.player2.getColor();
     
     
     //eventListeners
@@ -219,6 +223,7 @@ const DisplayHandler = (function(){
     //finestre modali:
     editPlayer1.addEventListener("click", () => p1Dialog.showModal());
     editPlayer2.addEventListener("click", ()=> p2Dialog.showModal());
+    
     //close buttons:
     p1CloseButton.addEventListener("click", (e)=>{
         e.preventDefault();
@@ -229,6 +234,8 @@ const DisplayHandler = (function(){
             game.player1.setColor(p1ColorInput.value);
             p1Score.textContent = `${game.player1.getName()}: ${game.player1.getScore()} `;
             p1Score.style.color = game.player1.getColor();
+            p1Score.style.borderColor = game.player1.getColor();
+   
 
             p1Dialog.close();
            
@@ -244,7 +251,7 @@ const DisplayHandler = (function(){
             game.player2.setColor(p2ColorInput.value);
             p2Score.textContent = `${game.player2.getName()}: ${game.player2.getScore()} `;
             p2Score.style.color = game.player2.getColor();
-
+            p2Score.style.borderColor = game.player2.getColor();
             p2Dialog.close();
            
         }
@@ -253,12 +260,15 @@ const DisplayHandler = (function(){
     //selettore colore:
     p1ColorInput.addEventListener("input", ()=>{
         game.player1.setColor(p1ColorInput.value);
+        p1Dialog.style.borderColor = game.player1.getColor();
+
         console.log(`cambioColore ${game.player1.getColor()}`);
 
     });
     p2ColorInput.addEventListener("input", ()=>{
         game.player2.setColor(p2ColorInput.value);
         console.log(`cambioColore ${game.player2.getColor()}`);
+        p2Dialog.style.borderColor = game.player2.getColor();
 
     });
 
@@ -271,6 +281,7 @@ const DisplayHandler = (function(){
                     element.style.backgroundColor = "#ffffff";
                 });
                 target.style.backgroundColor = game.player1.getColor();
+                game.player1.setImg("./icons/close.png");
                 console.log("click");
                 break;
             case "p1Mark2Img":
@@ -278,6 +289,7 @@ const DisplayHandler = (function(){
                     element.style.backgroundColor = "#ffffff";
                 });
                 target.style.backgroundColor = game.player1.getColor();
+                game.player1.setImg("./icons/delete-cross.png");
                 console.log("click");
                 break;
             case  "p1Mark3Img":   
@@ -285,6 +297,8 @@ const DisplayHandler = (function(){
                 element.style.backgroundColor = "#ffffff";
             });
             target.style.backgroundColor = game.player1.getColor();
+            game.player1.setImg("./icons/bones.png");
+
             console.log("click");
             break;
 
@@ -299,6 +313,7 @@ const DisplayHandler = (function(){
                     element.style.backgroundColor = "#ffffff";
                 });
                 target.style.backgroundColor = game.player2.getColor();
+                game.player2.setImg("./icons/rec.png");
                 console.log("click");
                 break;
             case "p2Mark2Img":
@@ -306,6 +321,7 @@ const DisplayHandler = (function(){
                     element.style.backgroundColor = "#ffffff";
                 });
                 target.style.backgroundColor = game.player2.getColor();
+                game.player2.setImg("./icons/star-inside-circle.png");
                 console.log("click");
                 break;
             case  "p2Mark3Img":   
@@ -313,11 +329,27 @@ const DisplayHandler = (function(){
                 element.style.backgroundColor = "#ffffff";
             });
             target.style.backgroundColor = game.player2.getColor();
+            game.player2.setImg("./icons/target.png");
             console.log("click");
             break;
 
         }
     });
+
+
+    //tasto start:
+    startButton.addEventListener("click", game.startGame);
+
+    //gameboard:
+    gameboard.addEventListener("click", (e)=>{
+        let target = e.target;
+        switch(target.id){
+            case: 
+        }
+
+
+    })
+    
 
 
 
